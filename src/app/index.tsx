@@ -1,29 +1,21 @@
-// 1) import Core Component ที่จะใช้
 import { Image, StyleSheet, Text, View } from 'react-native';
 
-// 2) ประกาศ Component หลัก (ชื่อขึ้นต้นด้วยตัวพิมพ์ใหญ่ และต้อง export default)
 export default function Index() {
   return (
-    // [1] View แม่ (Parent) ครอบทั้งหน้า
     <View style={styles.page}>
-      {/* [2] Image รูปโปรไฟล์ — ใช้ภาพจากไฟล์ด้วย require() */}
       <Image source={require('@/assets/images/profile.jpg')} style={styles.pic} />
 
-      {/* [3] Text ชื่อ และคำคม */}
       <Text style={styles.name}>ภูริทัต มิกขุนทด</Text>
       <Text style={styles.quote}>ล้มได้ แต่ต้องลุกขึ้นสู้ใหม่เสมอ</Text>
 
-      {/* [4] View การ์ดข้อมูล — Text x 3 */}
       <View style={styles.card}>
         <Text style={styles.info}>ห้อง BTI.1/5 เลขที่ 15</Text>
         <Text style={styles.info}>Email: pooritat.mikkhuntod@e-tech.ac.th</Text>
         <Text style={styles.info}>Phone: 0639657772</Text>
       </View>
 
-      {/* หัวข้อภาพกิจกรรม */}
       <Text style={styles.title}>ภาพกิจกรรม</Text>
 
-      {/* [5] View แถวรูป — Image x 3 (ภาพจากลิงก์ ต้องกำหนด width/height) */}
       <View style={styles.row}>
         <Image source={{ uri: 'https://picsum.photos/id/1015/200' }} style={styles.photo} />
         <Image source={{ uri: 'https://picsum.photos/id/1018/200' }} style={styles.photo} />
@@ -33,41 +25,41 @@ export default function Index() {
   );
 }
 
-// 3) StyleSheet แยก style ออกมา ตั้งชื่อแบบ camelCase ใช้ตัวเลขไม่ต้องใส่หน่วย
 const styles = StyleSheet.create({
   page: {
     flex: 1, // ยืดเต็มหน้าจอ
-    backgroundColor: '#ffffff',
-    alignItems: 'center', // จัดลูกกึ่งกลางแนวนอน (cross axis)
-    paddingTop: 100,
-    paddingHorizontal: 24,
+    backgroundColor: '#fdf6f0', // พื้นหลังสีครีมอ่อน
+    alignItems: 'center', // จัดลูกกึ่งกลางแนวนอน
+    paddingTop: 100, // เว้นระยะด้านบน
+    paddingHorizontal: 24, // เว้นระยะซ้าย-ขวา
   },
   pic: {
     width: 150,
     height: 150,
     borderRadius: 75, // ครึ่งหนึ่งของความกว้าง = วงกลม
-    borderWidth: 4,
-    borderColor: '#4a90e2',
+    borderWidth: 4, // ความหนาขอบรูป
+    borderColor: '#b8d8f0', // ฟ้าพาสเทล
   },
   name: {
     fontSize: 22,
     fontWeight: 'bold',
-    marginTop: 16,
+    color: '#6b5b7b', // ม่วงเทาอ่อน
+    marginTop: 16, // เว้นระยะจากรูปด้านบน
   },
   quote: {
     fontSize: 12,
-    color: 'gray',
+    color: '#a89bb5', // ม่วงพาสเทล
     fontStyle: 'italic',
-    marginTop: 4,
+    marginTop: 4, // เว้นระยะจากชื่อด้านบน
   },
   card: {
     alignSelf: 'stretch', // ขยายเต็มความกว้าง
-    backgroundColor: '#f0f0f0',
-    borderRadius: 12,
-    padding: 16,
-    marginTop: 24,
+    backgroundColor: '#e3f1e8', // เขียวมิ้นต์อ่อน
+    borderRadius: 12, // มุมโค้งของการ์ด
+    padding: 16, // เว้นระยะขอบด้านในทุกด้าน
+    marginTop: 24, // เว้นระยะจากคำคมด้านบน
     // เงา iOS
-    shadowColor: '#000',
+    shadowColor: '#b8c9bd',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 4,
@@ -76,23 +68,25 @@ const styles = StyleSheet.create({
   },
   info: {
     fontSize: 14,
-    marginBottom: 4,
+    color: '#5f7a6a', // เขียวเทา
+    marginBottom: 4, // เว้นระยะด้านล่างแต่ละบรรทัด
   },
   title: {
     alignSelf: 'flex-start', // ชิดซ้าย
     fontSize: 16,
+    color: '#d48a9e', // ชมพูพาสเทล
     fontWeight: 'bold',
-    marginTop: 24,
+    marginTop: 24, // เว้นระยะจากการ์ดด้านบน
   },
   row: {
     flexDirection: 'row', // เรียงซ้ายไปขวา
-    justifyContent: 'space-between',
+    justifyContent: 'space-between', // กระจายรูปให้ช่องว่างเท่ากัน
     alignSelf: 'stretch',
-    marginTop: 12,
+    marginTop: 12, // เว้นระยะจากหัวข้อด้านบน
   },
   photo: {
     width: 100,
     height: 100,
-    borderRadius: 8,
+    borderRadius: 8, // มุมโค้งของรูป
   },
 });
